@@ -2,7 +2,7 @@ NB. view 3d  - view 3d object
 NB.
 NB. illustrates viewpoint system used in Plot
 
-require 'gui/gtkwd'
+require 'gtkwd'
 GTKOUTPUT_jzplot_=: 'isi'
 
 PForm=: 'v3d'

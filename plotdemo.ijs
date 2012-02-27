@@ -5,7 +5,7 @@ NB. uses locale jdplot
 3 : 0''
 if. -.IFJ6 do.
   GTKOUTPUT_jzplot_=: 'isi'
-  require 'gui/gtkwd graphics/plot'
+  require 'gtkwd graphics/plot'
 else.
   require 'dates files isigraph numeric graphics/plot'
 end.
