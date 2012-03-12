@@ -52,7 +52,7 @@ wd PLOTDEMO
 PForm=: 'plotdemo'
 PFormhwnd=: 0 ". wd 'qhwndp'
 PId=: 'ps'
-PIdLoc=: getlocgl2_gtkwd_ wd 'qhwndc ps'
+PIdhwnd=: wd 'qhwndc ps'
 wd 'pshow'
 pd 'reset ',PForm
 wd 'set M',PLDEMOSEL,' 1'

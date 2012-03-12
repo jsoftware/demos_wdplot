@@ -64,7 +64,7 @@ DEFAULT=: VIEWPOINT
 DEFAULTUP=: VIEWUP
 
 wd V3D
-PIdLoc=: getlocgl2_gtkwd_ wd 'qhwndc gp'
+PIdhwnd=: wd 'qhwndc gp'
 setedits''
 setuedits''
 viewit''
