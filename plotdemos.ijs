@@ -4,8 +4,8 @@ NB. run plot demos in session
 
 3 : 0''
 if. -.IFJ6 do.
-  GTKOUTPUT_jzplot_=: 'isi'
-  CONSOLEOUTPUT_jzplot_=: 'isi'
+NB.   GTKOUTPUT_jzplot_=: 'isi'
+NB.   CONSOLEOUTPUT_jzplot_=: 'isi'
   require 'gtkwd graphics/plot'
 else.
   require 'dates files isigraph numeric graphics/plot'

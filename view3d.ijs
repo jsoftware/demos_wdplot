@@ -3,7 +3,7 @@ NB.
 NB. illustrates viewpoint system used in Plot
 
 require 'gtkwd'
-GTKOUTPUT_jzplot_=: 'isi'
+NB. GTKOUTPUT_jzplot_=: 'isi'
 
 PForm=: 'v3d'
 PId=: 'gp'
@@ -64,6 +64,7 @@ DEFAULT=: VIEWPOINT
 DEFAULTUP=: VIEWUP
 
 wd V3D
+PIdLoc=: getlocgl2_gtkwd_ wd 'qhwndc gp'
 setedits''
 setuedits''
 viewit''
