@@ -233,7 +233,6 @@ bgn=. todayno 2004,.(1+i.12),.1
 ndx=. (+/ x </ bgn),<:#x
 'j m d'=. |:todate ndx { x
 lab=. (":each d) ,each (m-1) { MTH3
-pd 'reset'
 pd 'title 2004 London Gold Fix USD'
 pd 'xrange 0 ',":<:#x
 pd 'xticpos ',":ndx
