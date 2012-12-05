@@ -1,6 +1,8 @@
 NB. edit graph definition
 
-coclass 'jdplot'
+coclass 'jdplotedit'
+coinsert 'wdbase'
+droidwd_run=: plotedit_run
 
 getfontsz=: 13 : '{.1{._1 -.~ _1 ". y'
 setfontsize=: 4 : 0
@@ -25,6 +27,7 @@ rem form end;
 NB. =========================================================
 NB. argument is name of definition
 plotedit_run=: 3 : 0
+y=. PLDEMOSEL_jdplot_
 GNAME=: 'D',y,(0=#y)#'JGRAPHICS'
 if. wdisparent 'plotedit' do.
   wd 'psel plotedit'
@@ -32,7 +35,7 @@ else.
   wd PLOTEDIT
   wd 'setfont graf ',FIXFONT
 end.
-wd 'set graf *',".GNAME
+wd 'set graf *',".GNAME,'_jdplot_'
 wd 'setfocus graf'
 wd 'pshow;'
 )
@@ -40,6 +43,7 @@ wd 'pshow;'
 NB. =========================================================
 plotedit_close_button=: 3 : 0
 GRAF=: graf
+assign=. 4 : '".x,''=:y'''
 GNAME assign graf
 wd 'pclose'
 )
@@ -60,11 +64,14 @@ pd 'reset'
 )
 
 plotedit_help_button=: 3 : 0
-wdinfo 'Plot Demo';PLOTEDITHELP,DBAR,'pd ''show'''
+sminfo 'Plot Demo';PLOTEDITHELP,DBAR_jdplot_,'pd ''show'''
 )
 
 NB. =========================================================
 plotedit_redisplay_button=: 3 : 0
+if. 'Android'-:UNAME do.
+  sminfo 'J Graphics';'This demo is for desktop versions only' return.
+end.
 GRAF=: graf
 try.
   wd 'psel ',PForm
@@ -72,7 +79,7 @@ try.
   plotrun graf
   wd 'psel plotedit'
 catch.
-  wdinfo 'error in graph definition'
+  sminfo 'error in graph definition'
   0 return.
 end.
 1
@@ -97,5 +104,5 @@ ftr=. ndx }. dat
 ftr=. ftr, LF -. {:ftr
 new=. hdr,grf,ftr
 new fwrites f
-wdinfo 'Plot';'Saved: ',GNAME
+sminfo 'Plot';'Saved: ',GNAME
 )

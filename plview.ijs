@@ -71,7 +71,12 @@ if. systype -: 'button' do.
     PLDEMOSEL=: name
     wd 'set M',PLDEMOSEL,' 1'
     pd 'reset ',PForm
-    plotrunsx 'D',PLDEMOSEL
+    if. 'Android'-:UNAME do.
+      plotruns 'D',PLDEMOSEL
+      glpaintx''
+    else.
+      plotrunsx 'D',PLDEMOSEL
+    end.
   end.
 end.
 ''
@@ -79,7 +84,8 @@ end.
 
 NB. =========================================================
 plotdemo_view_button=: 3 : 0
-plotedit_run PLDEMOSEL
+plotedit_run_jdplotedit_`start_droidwd_jdplotedit_@.('Android'-:UNAME) 'jdplotedit'
+NB. plotedit_run PLDEMOSEL
 )
 
 NB. =========================================================
@@ -90,13 +96,13 @@ try. wd 'psel plotedit;pclose' catch. end.
 
 NB. =========================================================
 plotdemo_contents_button=: 3 : 0
-wdinfo 'help contents'
+sminfo 'help contents'
 )
 
 NB. =========================================================
 plotdemo_about_button=: 3 : 0
 j=. 'Plot Demo V',(4j2 ": PLDEMOVER)
-wdinfo 'Plot';j
+sminfo 'Plot';j
 )
 
 NB. =========================================================
@@ -129,7 +135,12 @@ wd 'set M',PLDEMOSEL,' 0'
 PLDEMOSEL=: }.ndx pick PLOTALL
 wd 'set M',PLDEMOSEL,' 1'
 pd 'reset ',PForm
-plotrunsx 'D',PLDEMOSEL
+if. 'Android'-:UNAME do.
+  plotruns 'D',PLDEMOSEL
+  glpaintx''
+else.
+  plotrunsx 'D',PLDEMOSEL
+end.
 )
 
 NB. =========================================================
