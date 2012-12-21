@@ -4,17 +4,14 @@ NB. run plot demos in session
 
 3 : 0''
 if. -.IFJ6 do.
-NB.   GTKOUTPUT_jzplot_=: 'isi'
-NB.   CONSOLEOUTPUT_jzplot_=: 'isi'
-  require 'droidwd gtkwd qtide plot'
+  require 'droidwd gtkwd trig plot'
 else.
-  require 'dates files isigraph numeric graphics/plot'
+  require 'dates files isigraph numeric plot'
 end.
 ''
 )
 
 load '~addons/demos/wdplot/plexam.ijs'
-
 
 NB. =========================================================
 plotdemos_z_=: 3 : 0
