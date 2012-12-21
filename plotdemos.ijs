@@ -6,7 +6,7 @@ NB. run plot demos in session
 if. -.IFJ6 do.
 NB.   GTKOUTPUT_jzplot_=: 'isi'
 NB.   CONSOLEOUTPUT_jzplot_=: 'isi'
-  require 'droidwd gtkwd graphics/plot'
+  require 'droidwd gtkwd qtide plot'
 else.
   require 'dates files isigraph numeric graphics/plot'
 end.
