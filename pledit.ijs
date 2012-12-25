@@ -74,8 +74,8 @@ if. 'Android'-:UNAME do.
 end.
 GRAF=: graf
 try.
-  wd 'psel ',PForm
-  pd 'reset ',PForm
+  wd 'psel ',":PForm
+  pd 'reset ',":PForm
   plotrun graf
   wd 'psel plotedit'
 catch.

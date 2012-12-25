@@ -53,12 +53,12 @@ if. IFQT do.
   PFormhwnd=: wdqhwndp''
   PIdhwnd=: wdqhwndc 'ps'
 else.
-  PFormhwnd=: 0 ". wd 'qhwndp'
-  PIdhwnd=: wd 'qhwndc ps'
+  PFormhwnd=: wdqhwndp''
+  PIdhwnd=: wdqhwndc 'ps'
 end.
 PId=: 'ps'
 wd 'pshow'
-pd 'reset ',PForm
+pd 'reset ',":PForm
 wd 'set M',PLDEMOSEL,' 1'
 plotruns 'D',PLDEMOSEL
 )
@@ -75,7 +75,7 @@ if. systype -: 'button' do.
     wd 'set M',PLDEMOSEL,' 0'
     PLDEMOSEL=: name
     wd 'set M',PLDEMOSEL,' 1'
-    pd 'reset ',PForm
+    pd 'reset ',":PForm
     if. 'Android'-:UNAME do.
       plotruns 'D',PLDEMOSEL
       glpaintx''
@@ -139,7 +139,7 @@ ndx=. (#PLOTALL) | y + PLOTALL i. <'D',PLDEMOSEL
 wd 'set M',PLDEMOSEL,' 0'
 PLDEMOSEL=: }.ndx pick PLOTALL
 wd 'set M',PLDEMOSEL,' 1'
-pd 'reset ',PForm
+pd 'reset ',":PForm
 if. 'Android'-:UNAME do.
   plotruns 'D',PLDEMOSEL
   glpaintx''
