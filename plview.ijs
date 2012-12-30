@@ -18,6 +18,7 @@ plotrunsx=: 3 : 0
 glclear''
 0!:100 ". y
 pd 'show'
+glpaintx^:IFQT ''
 )
 
 PLTIMER=: 3000
