@@ -18,7 +18,6 @@ plotrunsx=: 3 : 0
 glclear''
 0!:100 ". y
 pd 'show'
-glpaintx^:IFQT ''
 )
 
 PLTIMER=: 3000
@@ -135,7 +134,7 @@ wd 'set M',PLDEMOSEL,' 0'
 PLDEMOSEL=: }.ndx pick PLOTALL
 wd 'set M',PLDEMOSEL,' 1'
 pd 'reset ',":PForm
-if. IFQT +. 'Android'-:UNAME do.
+if. 'Android'-:UNAME do.
   plotruns 'D',PLDEMOSEL
   glpaintx''
 else.
