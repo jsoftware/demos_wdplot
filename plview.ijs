@@ -51,6 +51,7 @@ PForm=: 'plotdemo'
 PFormhwnd=: wdqhwndp''
 PIdhwnd=: wdqhwndc 'ps'
 PId=: 'ps'
+NB. wd 'pmovex _1 _1 720 520'
 wd 'pshow'
 pd 'reset ', PForm
 wd 'set M',PLDEMOSEL,' 1'
