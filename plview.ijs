@@ -56,6 +56,7 @@ wd 'pshow'
 pd 'reset ', PForm
 wd 'set M',PLDEMOSEL,' 1'
 plotruns 'D',PLDEMOSEL
+glpaint''
 )
 
 NB. =========================================================
