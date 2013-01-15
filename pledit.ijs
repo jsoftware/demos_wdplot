@@ -72,7 +72,7 @@ sminfo 'Plot Demo';PLOTEDITHELP,DBAR_jdplot_,'pd ''show'''
 
 NB. =========================================================
 plotedit_redisplay_button=: 3 : 0
-if. 'Android'-:UNAME do.
+if. (('Android'-:UNAME)>IFQT) do.
   sminfo 'J Graphics';'This demo is for desktop versions only' return.
 end.
 GRAF=: graf

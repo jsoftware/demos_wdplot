@@ -72,7 +72,7 @@ if. systype -: 'button' do.
     PLDEMOSEL=: name
     wd 'set M',PLDEMOSEL,' 1'
     pd 'reset ',":PForm
-    if. 'Android'-:UNAME do.
+    if. (('Android'-:UNAME)>IFQT) do.
       plotruns 'D',PLDEMOSEL
       glpaintx''
     else.
@@ -136,7 +136,7 @@ wd 'set M',PLDEMOSEL,' 0'
 PLDEMOSEL=: }.ndx pick PLOTALL
 wd 'set M',PLDEMOSEL,' 1'
 pd 'reset ',":PForm
-if. 'Android'-:UNAME do.
+if. (('Android'-:UNAME)>IFQT) do.
   plotruns 'D',PLDEMOSEL
   glpaintx''
 else.
