@@ -46,7 +46,7 @@ end.
 ASPECT=: 170%270
 PShow=: 0
 
-wd PLOTDEMO
+wd ('Android'-:UNAME){::PLOTDEMO;('360 260';'180 130') stringreplace PLOTDEMO
 PForm=: 'plotdemo'
 PFormhwnd=: wdqhwndp''
 PIdhwnd=: wdqhwndc 'ps'
