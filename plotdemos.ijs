@@ -2,14 +2,7 @@ NB. plotdemos
 NB.
 NB. run plot demos in session
 
-3 : 0''
-if. -.IFJ6 do.
-  require 'droidwd gtkwd trig plot'
-else.
-  require 'dates files isigraph numeric plot'
-end.
-''
-)
+require 'droidwd trig plot'
 
 load '~addons/demos/wdplot/plexam.ijs'
 

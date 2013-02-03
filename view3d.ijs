@@ -2,8 +2,7 @@ NB. view 3d  - view 3d object
 NB.
 NB. illustrates viewpoint system used in Plot
 
-require 'droidwd gtkwd'
-NB. GTKOUTPUT_jzplot_=: 'isi'
+require 'droidwd'
 
 PForm=: 'v3d'
 PId=: 'gp'
