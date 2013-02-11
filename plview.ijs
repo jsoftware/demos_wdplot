@@ -57,6 +57,13 @@ pd 'reset ', PForm
 wd 'set M',PLDEMOSEL,' 1'
 plotruns 'D',PLDEMOSEL
 glpaint''
+NB. workaround Qt bug, simulate a user deselect/select
+if. (wdisparent 'demos') *. IFQT>('Android'-:UNAME) do.
+  wd'psel demos'
+  wd'pactive'
+  wd'psel plotdemo'
+  wd'pactive'
+end.
 )
 
 NB. =========================================================
