@@ -18,6 +18,7 @@ plotrunsx=: 3 : 0
 glclear''
 0!:100 ". y
 pd 'show'
+glpaint''
 )
 
 PLTIMER=: 3000
@@ -27,6 +28,7 @@ SLIDES=: 0
 
 NB. =========================================================
 plotdemo_run=: 3 : 0
+
 Cw=: _1 NB. ensure plot window is sized
 f=. jpath '~system/packages/graphics/'&, @ (,&'.ijs')
 DATHILO=: }. 'm' fread jpath '~addons/demos/wdplot/dm0396.txt'
@@ -48,17 +50,13 @@ PShow=: 0
 
 wd ('Android'-:UNAME){::PLOTDEMO;('360 260';'180 130') stringreplace PLOTDEMO
 PForm=: 'plotdemo'
-PFormhwnd=: wdqhwndp''
-PIdhwnd=: wdqhwndc 'ps'
+PFormhwnd=: wd 'qhwndp'
 PId=: 'ps'
-NB. wd 'pmovex _1 _1 720 520'
-wd 'pshow'
-pd 'reset ', PForm
+PIdhwnd=: wd 'qhwndc ps'
+pd 'reset ',PForm
 wd 'set M',PLDEMOSEL,' 1'
 plotruns 'D',PLDEMOSEL
-NB. TODO glpaint is the one needed, but test if that will break Mac
-glpaintx''
-glpaint ::0:''
+wd 'pshow'
 )
 
 NB. =========================================================
@@ -73,7 +71,7 @@ if. systype -: 'button' do.
     wd 'set M',PLDEMOSEL,' 0'
     PLDEMOSEL=: name
     wd 'set M',PLDEMOSEL,' 1'
-    pd 'reset ',":PForm
+    pd 'reset ',PForm
     if. (('Android'-:UNAME)>IFQT) do.
       plotruns 'D',PLDEMOSEL
       glpaintx''
@@ -88,7 +86,6 @@ end.
 NB. =========================================================
 plotdemo_view_button=: 3 : 0
 plotedit_run_jdplotedit_`start_droidwd_jdplotedit_@.(('Android'-:UNAME)>IFQT) 'jdplotedit'
-NB. plotedit_run PLDEMOSEL
 )
 
 NB. =========================================================
@@ -137,7 +134,7 @@ ndx=. (#PLOTALL) | y + PLOTALL i. <'D',PLDEMOSEL
 wd 'set M',PLDEMOSEL,' 0'
 PLDEMOSEL=: }.ndx pick PLOTALL
 wd 'set M',PLDEMOSEL,' 1'
-pd 'reset ',":PForm
+pd 'reset ',PForm
 if. (('Android'-:UNAME)>IFQT) do.
   plotruns 'D',PLDEMOSEL
   glpaintx''
