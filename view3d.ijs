@@ -13,41 +13,41 @@ menupop "File";
 menusep ;
 menu exit "&Exit" "" "" "";
 menupopz;
-xywh 233 4 30 12;cc cancel button leftmove rightmove;cn "Close";
-xywh 198 4 30 12;cc default button leftmove rightmove;cn "Default";
-xywh 5 6 6 8;cc xlabel static;cn "x:";
-xywh 12 5 18 10;cc xedit edit ws_border es_autohscroll;
-xywh 32 4 10 11;cc xspin spinv;
-xywh 49 6 6 8;cc ylabel static;cn "y:";
-xywh 55 5 18 10;cc yedit edit ws_border es_autohscroll;
-xywh 74 4 10 11;cc yspin spinv;
-xywh 93 6 6 8;cc zlabel static;cn "z:";
-xywh 99 5 18 10;cc zedit edit ws_border es_autohscroll;
-xywh 118 4 10 11;cc zspin spinv;
-xywh 252 32 6 8;cc xlabel static leftmove rightmove;cn "x:";
-xywh 246 40 19 10;cc uxedit edit ws_border es_autohscroll leftmove rightmove;
-xywh 252 64 6 8;cc ylabel static leftmove rightmove;cn "y:";
-xywh 246 72 19 10;cc uyedit edit ws_border es_autohscroll leftmove rightmove;
-xywh 252 96 6 8;cc zlabel static leftmove rightmove;cn "z:";
-xywh 246 104 19 10;cc uzedit edit ws_border es_autohscroll leftmove rightmove;
-xywh 0 20 243 162;cc gp isigraph ws_border rightmove bottommove;
-xywh 248 116 12 9;cc uzspin spin leftmove rightmove;
-xywh 249 84 12 9;cc uyspin spin leftmove rightmove;
-xywh 249 52 12 9;cc uxspin spin leftmove rightmove;
+cc cancel button;cn "Close";
+cc default button;cn "Default";
+cc xlabel static;cn "x:";
+cc xedit edit;
+cc xspin spinv;
+cc ylabel static;cn "y:";
+cc yedit edit;
+cc yspin spinv;
+cc zlabel static;cn "z:";
+cc zedit edit;
+cc zspin spinv;
+cc xlabel static;cn "x:";
+cc uxedit edit;
+cc ylabel static;cn "y:";
+cc uyedit edit;
+cc zlabel static;cn "z:";
+cc uzedit edit;
+wh 486 324;cc gp isigraph;
+cc uzspin spin;
+cc uyspin spin;
+cc uxspin spin;
 pas 2 0;pcenter;
 rem form end;
 )
 
 setedits=: 3 : 0
-wd 'set xedit ',pfmt VIEWX
-wd 'set yedit ',pfmt VIEWY
-wd 'set zedit ',pfmt VIEWZ
+wd 'set xedit text ',pfmt VIEWX
+wd 'set yedit text ',pfmt VIEWY
+wd 'set zedit text ',pfmt VIEWZ
 )
 
 setuedits=: 3 : 0
-wd 'set uxedit ',pfmt VIEWUPX
-wd 'set uyedit ',pfmt VIEWUPY
-wd 'set uzedit ',pfmt VIEWUPZ
+wd 'set uxedit text ',pfmt VIEWUPX
+wd 'set uyedit text ',pfmt VIEWUPY
+wd 'set uzedit text ',pfmt VIEWUPZ
 )
 
 v3d_run=: 3 : 0
@@ -96,7 +96,7 @@ wd 'pclose;'
 
 v3d_xspin_button=: 3 : 0
 VIEWX=: clean VIEWX+0.2*".xspin
-wd 'set xedit ',pfmt VIEWX
+wd 'set xedit text ',pfmt VIEWX
 viewit''
 )
 
@@ -112,31 +112,31 @@ viewit''
 
 v3d_yspin_button=: 3 : 0
 VIEWY=: clean VIEWY+0.2*".yspin
-wd 'set yedit ',pfmt VIEWY
+wd 'set yedit text ',pfmt VIEWY
 viewit''
 )
 
 v3d_zspin_button=: 3 : 0
 VIEWZ=: clean VIEWZ+0.2*".zspin
-wd 'set zedit ',pfmt VIEWZ
+wd 'set zedit text ',pfmt VIEWZ
 viewit''
 )
 
 v3d_uxspin_button=: 3 : 0
 VIEWUPX=: clean VIEWUPX+0.05*".uxspin
-wd 'set uxedit ',pfmt VIEWUPX
+wd 'set uxedit text ',pfmt VIEWUPX
 viewit''
 )
 
 v3d_uyspin_button=: 3 : 0
 VIEWUPY=: clean VIEWUPY+0.05*".uyspin
-wd 'set uyedit ',pfmt VIEWUPY
+wd 'set uyedit text ',pfmt VIEWUPY
 viewit''
 )
 
 v3d_uzspin_button=: 3 : 0
 VIEWUPZ=: clean VIEWUPZ+0.05*".uzspin
-wd 'set uzedit ',pfmt VIEWUPZ
+wd 'set uzedit text ',pfmt VIEWUPZ
 viewit''
 )
 

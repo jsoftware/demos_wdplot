@@ -22,7 +22,6 @@ glpaint''
 )
 
 PLTIMER=: 3000
-IFWINCE=: 7=9!:12''
 PLDEMOVER=: 6.02
 SLIDES=: 0
 
@@ -35,11 +34,7 @@ DATHILO=: }. 'm' fread jpath '~addons/demos/wdplot/dm0396.txt'
 
 MyPlotDefaults=: '' NB. turn off user defaults
 
-if. IFWINCE do.
-  def=. 'LINE'
-else.
-  def=. 'JGRAPHICS'
-end.
+def=. 'JGRAPHICS'
 
 if. 0 ~: 4!:0 <'PLDEMOSEL' do.
   PLDEMOSEL=: def
@@ -48,13 +43,13 @@ end.
 ASPECT=: 170%270
 PShow=: 0
 
-wd ('Android'-:UNAME){::PLOTDEMO;('360 260';'180 130') stringreplace PLOTDEMO
+wd ('Android'-:UNAME){::PLOTDEMO;('720 520';'360 260') stringreplace PLOTDEMO
 PForm=: 'plotdemo'
 PFormhwnd=: wd 'qhwndp'
 PId=: 'ps'
 PIdhwnd=: wd 'qhwndc ps'
 pd 'reset ',PForm
-wd 'set M',PLDEMOSEL,' 1'
+wd 'set M',PLDEMOSEL,' checked 1'
 plotruns 'D',PLDEMOSEL
 wd 'pshow'
 )
@@ -64,13 +59,13 @@ plotdemo_default=: 3 : 0
 if. systype -: 'button' do.
   name=. }.syschild
   if. name -: PLDEMOSEL do.
-    wd 'set M',PLDEMOSEL,' 1'
+    wd 'set M',PLDEMOSEL,' checked 1'
     return.
   end.
   if. (<name) e. PLOTNAMES do.
-    wd 'set M',PLDEMOSEL,' 0'
+    wd 'set M',PLDEMOSEL,' checked 0'
     PLDEMOSEL=: name
-    wd 'set M',PLDEMOSEL,' 1'
+    wd 'set M',PLDEMOSEL,' checked 1'
     pd 'reset ',PForm
     if. (('Android'-:UNAME)>IFQT) do.
       plotruns 'D',PLDEMOSEL
@@ -125,15 +120,15 @@ else.
   sys_timer_z_=: plotdemo_timer_jdplot_
   SLIDES=: 1
 end.
-wd 'set slides ',":SLIDES
+wd 'set slides checked ',":SLIDES
 )
 
 NB. =========================================================
 plotdemo_step=: 3 : 0
 ndx=. (#PLOTALL) | y + PLOTALL i. <'D',PLDEMOSEL
-wd 'set M',PLDEMOSEL,' 0'
+wd 'set M',PLDEMOSEL,' checked 0'
 PLDEMOSEL=: }.ndx pick PLOTALL
-wd 'set M',PLDEMOSEL,' 1'
+wd 'set M',PLDEMOSEL,' checked 1'
 pd 'reset ',PForm
 if. (('Android'-:UNAME)>IFQT) do.
   plotruns 'D',PLDEMOSEL
@@ -164,15 +159,10 @@ plotdemo_next_button=: plotdemo_step bind 1
 plotdemo_prev_button=: plotdemo_step bind _1
 
 3 : 0 ''
-if. IFWINCE do.
-  plotdemo_actrl_fkey=: plotdemo_next_button
-  plotdemo_actrlshift_fkey=: plotdemo_prev_button
-else.
-  plotdemo_f10_fkey=: plotdemo_saveeps_button
-  plotdemo_f11_fkey=: plotdemo_savepdf_button
-  plotdemo_f12_fkey=: plotdemo_next_button
-  plotdemo_f12shift_fkey=: plotdemo_prev_button
-end.
+plotdemo_f10_fkey=: plotdemo_saveeps_button
+plotdemo_f11_fkey=: plotdemo_savepdf_button
+plotdemo_f12_fkey=: plotdemo_next_button
+plotdemo_f12shift_fkey=: plotdemo_prev_button
 0
 )
 

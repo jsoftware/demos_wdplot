@@ -17,11 +17,11 @@ NB. =========================================================
 PLOTEDIT=: 0 : 0
 pc plotedit;pn "View Definition";
 bin vhs;
-xywh 82 1 42 12;cc redisplay button leftmove rightmove;cn "&Redisplay";
-xywh 124 1 42 12;cc help button leftmove rightmove;cn "&Help";
-xywh 166 1 42 12;cc close button leftmove rightmove;cn "&Close";
+cc redisplay button;cn "&Redisplay";
+cc help button;cn "&Help";
+cc close button;cn "&Close";
 bin z;
-xywh 0 13 208 100;cc graf editm ws_vscroll rightmove bottommove;
+wh 416 200;cc graf editm;
 bin z;
 pas 0 0;
 rem form end;
@@ -38,7 +38,7 @@ else.
   wd PLOTEDIT
   wd 'setfont graf ',FIXFONT
 end.
-wd 'set graf *',".GNAME,'_jdplot_'
+wd 'set graf text *',".GNAME,'_jdplot_'
 wd 'setfocus graf'
 wd 'pshow;'
 )
