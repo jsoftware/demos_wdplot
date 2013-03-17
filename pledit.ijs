@@ -80,6 +80,7 @@ try.
   wd 'psel ',":PForm
   pd 'reset ',":PForm
   plotrun graf
+  glpaintx''
   wd 'psel plotedit'
 catch.
   sminfo 'error in graph definition'
