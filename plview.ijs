@@ -67,7 +67,7 @@ if. systype -: 'button' do.
     PLDEMOSEL=: name
     wd 'set M',PLDEMOSEL,' checked 1'
     pd 'reset ',PForm
-    if. (('Android'-:UNAME)>IFQT) do.
+    if. IFJCDROID do.
       plotruns 'D',PLDEMOSEL
       glpaintx''
     else.
@@ -80,7 +80,7 @@ end.
 
 NB. =========================================================
 plotdemo_view_button=: 3 : 0
-plotedit_run_jdplotedit_`start_droidwd_jdplotedit_@.(('Android'-:UNAME)>IFQT) 'jdplotedit'
+plotedit_run_jdplotedit_`start_droidwd_jdplotedit_@.IFJCDROID 'jdplotedit'
 )
 
 NB. =========================================================
@@ -130,7 +130,7 @@ wd 'set M',PLDEMOSEL,' checked 0'
 PLDEMOSEL=: }.ndx pick PLOTALL
 wd 'set M',PLDEMOSEL,' checked 1'
 pd 'reset ',PForm
-if. (('Android'-:UNAME)>IFQT) do.
+if. IFJCDROID do.
   plotruns 'D',PLDEMOSEL
   glpaintx''
 else.

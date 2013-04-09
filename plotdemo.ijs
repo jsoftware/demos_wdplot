@@ -12,4 +12,4 @@ droidwd_run=: plotdemo_run
 
 load files
 
-plotdemo_run_jdplot_`start_droidwd_jdplot_@.(('Android'-:UNAME)>IFQT) 'jdplot'
+plotdemo_run_jdplot_`start_droidwd_jdplot_@.IFJCDROID 'jdplot'
