@@ -30,7 +30,7 @@ cc ylabel static;cn "y:";
 cc uyedit edit;
 cc zlabel static;cn "z:";
 cc uzedit edit;
-wh 486 324;cc gp isigraph;
+minwh 486 324;cc gp isigraph;
 cc uzspin spin;
 cc uyspin spin;
 cc uxspin spin;

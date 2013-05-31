@@ -21,7 +21,7 @@ cc redisplay button;cn "&Redisplay";
 cc help button;cn "&Help";
 cc close button;cn "&Close";
 bin z;
-wh 416 200;cc graf editm;
+minwh 416 200;cc graf editm;
 bin z;
 pas 0 0;
 rem form end;
