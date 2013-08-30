@@ -112,7 +112,7 @@ menu prev "&Shift F12 Previous" "" "" "";
 menusep;
 menu about "&About" "" "" "";
 menupopz;
-minwh 720 520;cc ps isigraph;
+minwh 720 520;cc ps isigraph flush;
 pas 0 0;pcenter;
 rem form end;
 )

@@ -6,7 +6,7 @@ DESCRIPTION=: 0 : 0
 Plot demos using wd emulation
 )
 
-VERSION=: '1.0.28'
+VERSION=: '1.0.29'
 
 RELEASE=: 'j801'
 
