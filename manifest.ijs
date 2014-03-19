@@ -6,9 +6,13 @@ DESCRIPTION=: 0 : 0
 Plot demos using wd emulation
 )
 
-VERSION=: '1.0.30'
+VERSION=: '1.0.31'
 
 RELEASE=: 'j801'
+
+DEPENDS=: 0 : 0
+graphics/plot
+)
 
 FILES=: 0 : 0
 dm0396.txt
