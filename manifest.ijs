@@ -29,3 +29,4 @@ plview.ijs
 run.ijs
 view3d.ijs
 )
+PLATFORMS=: 'linux win darwin android'
