@@ -50,7 +50,7 @@ PId=: 'ps'
 PIdhwnd=: wd 'qhwndc ps'
 pd 'reset ',PForm
 wd 'set M',PLDEMOSEL,' checked 1'
-plotruns 'D',PLDEMOSEL
+plotrunsx 'D',PLDEMOSEL
 wd 'pshow'
 )
 
