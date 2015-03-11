@@ -6,9 +6,9 @@ DESCRIPTION=: 0 : 0
 Plot demos using wd emulation
 )
 
-VERSION=: '1.0.35'
+VERSION=: '1.0.36'
 
-RELEASE=: 'j803'
+RELEASE=: 'j803 j804'
 
 DEPENDS=: 0 : 0
 graphics/plot
