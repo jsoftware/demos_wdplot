@@ -42,16 +42,34 @@ end.
 
 ASPECT=: 170%270
 PShow=: 0
+if. IFJA do.
+  wd 'activity ', >coname''
+else.
+  wd PLOTDEMO
+  PForm=: 'plotdemo'
+  PFormhwnd=: wd 'qhwndp'
+  PId=: 'ps'
+  PIdhwnd=: wd 'qhwndc ps'
+  pd 'reset ',PForm
+  wd 'set M',PLDEMOSEL,' checked 1'
+  plotrunsx 'D',PLDEMOSEL
+  wd 'pshow'
+end.
+)
 
-wd ('Android'-:UNAME){::PLOTDEMO;('720 520';'360 260') stringreplace PLOTDEMO
+onCreate=: 3 : 0
+wd ('720 520';'360 260') stringreplace PLOTDEMO
 PForm=: 'plotdemo'
 PFormhwnd=: wd 'qhwndp'
 PId=: 'ps'
 PIdhwnd=: wd 'qhwndc ps'
 pd 'reset ',PForm
+wd 'pshow'
+)
+
+onCreateOptionsMenu=: 3 : 0
 wd 'set M',PLDEMOSEL,' checked 1'
 plotrunsx 'D',PLDEMOSEL
-wd 'pshow'
 )
 
 NB. =========================================================
@@ -67,9 +85,8 @@ if. systype -: 'button' do.
     PLDEMOSEL=: name
     wd 'set M',PLDEMOSEL,' checked 1'
     pd 'reset ',PForm
-    if. IFJCDROID do.
-      plotruns 'D',PLDEMOSEL
-      glpaintx''
+    if. IFJA do.
+      plotrunsx 'D',PLDEMOSEL
     else.
       plotrunsx 'D',PLDEMOSEL
     end.
@@ -80,7 +97,7 @@ end.
 
 NB. =========================================================
 plotdemo_view_button=: 3 : 0
-plotedit_run_jdplotedit_`start_droidwd_jdplotedit_@.IFJCDROID 'jdplotedit'
+plotedit_run_jdplotedit_ 'jdplotedit'
 )
 
 NB. =========================================================
@@ -130,9 +147,8 @@ wd 'set M',PLDEMOSEL,' checked 0'
 PLDEMOSEL=: }.ndx pick PLOTALL
 wd 'set M',PLDEMOSEL,' checked 1'
 pd 'reset ',PForm
-if. IFJCDROID do.
-  plotruns 'D',PLDEMOSEL
-  glpaintx''
+if. IFJA do.
+  plotrunsx 'D',PLDEMOSEL
 else.
   plotrunsx 'D',PLDEMOSEL
 end.

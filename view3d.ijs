@@ -2,8 +2,6 @@ NB. view 3d  - view 3d object
 NB.
 NB. illustrates viewpoint system used in Plot
 
-require 'droidwd'
-
 PForm=: 'v3d'
 PId=: 'gp'
 
@@ -62,6 +60,19 @@ VIEWUPZ=: 2{VIEWUP
 DEFAULT=: VIEWPOINT
 DEFAULTUP=: VIEWUP
 
+if. IFJA do.
+  wd 'activity ',>coname''
+else.
+  wd V3D
+  PIdhwnd=: wdqhwndc 'gp'
+  setedits''
+  setuedits''
+  viewit''
+  wd 'pshow;'
+end.
+)
+
+onCreate=: 3 : 0
 wd V3D
 PIdhwnd=: wdqhwndc 'gp'
 setedits''

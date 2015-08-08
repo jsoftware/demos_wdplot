@@ -482,7 +482,6 @@ pd 'color red,green'
 pd 'keystyle ho'
 pd 'keypos bo'
 pd 'key sin(exp),cos(exp)'
-x=. steps _1 2 100
 pd d1
 pd d2
 

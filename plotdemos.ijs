@@ -2,7 +2,7 @@ NB. plotdemos
 NB.
 NB. run plot demos in session
 
-require 'droidwd trig plot'
+require ' trig plot'
 
 load '~addons/demos/wdplot/plexam.ijs'
 

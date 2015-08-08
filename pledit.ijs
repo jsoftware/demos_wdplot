@@ -1,8 +1,7 @@
 NB. edit graph definition
 
 coclass 'jdplotedit'
-coinsert 'jdplot wdbase'
-droidwd_run=: plotedit_run
+coinsert 'jdplot'
 
 getfontsz=: 13 : '{.1{._1 -.~ _1 ". y'
 setfontsize=: 4 : 0
@@ -34,10 +33,24 @@ y=. PLDEMOSEL_jdplot_
 GNAME=: 'D',y,(0=#y)#'JGRAPHICS'
 if. wdisparent 'plotedit' do.
   wd 'psel plotedit'
+  wd 'set graf text *',".GNAME,'_jdplot_'
+  wd 'setfocus graf'
 else.
-  wd PLOTEDIT
-  wd 'setfont graf ',FIXFONT
+  if. JAndroid do.
+    wd 'activity ',>coname''
+  else.
+    wd PLOTEDIT
+    wd 'setfont graf ',FIXFONT
+    wd 'pshow;'
+    wd 'set graf text *',".GNAME,'_jdplot_'
+    wd 'setfocus graf'
+  end.
 end.
+)
+
+onCreate=: 3 : 0
+wd PLOTEDIT
+wd 'setfont graf ',FIXFONT
 wd 'set graf text *',".GNAME,'_jdplot_'
 wd 'setfocus graf'
 wd 'pshow;'
@@ -72,7 +85,7 @@ sminfo 'Plot Demo';PLOTEDITHELP,DBAR_jdplot_,'pd ''show'''
 
 NB. =========================================================
 plotedit_redisplay_button=: 3 : 0
-if. IFJCDROID do.
+if. IFJA do.
   sminfo 'J Graphics';'This demo is for desktop versions only' return.
 end.
 GRAF=: graf
