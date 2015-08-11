@@ -36,7 +36,7 @@ if. wdisparent 'plotedit' do.
   wd 'set graf text *',".GNAME,'_jdplot_'
   wd 'setfocus graf'
 else.
-  if. JAndroid do.
+  if. IFJA do.
     wd 'activity ',>coname''
   else.
     wd PLOTEDIT
