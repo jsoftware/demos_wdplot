@@ -37,7 +37,7 @@ if. wdisparent 'plotedit' do.
   wd 'setfocus graf'
 else.
   if. IFJA do.
-    wd 'activity ',>coname''
+    wd 'activity ', (>coname'')
   else.
     wd PLOTEDIT
     wd 'setfont graf ',FIXFONT
@@ -48,7 +48,7 @@ else.
 end.
 )
 
-onCreate=: 3 : 0
+onStart=: 3 : 0
 wd PLOTEDIT
 wd 'setfont graf ',FIXFONT
 wd 'set graf text *',".GNAME,'_jdplot_'

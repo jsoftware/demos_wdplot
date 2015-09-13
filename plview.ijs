@@ -43,7 +43,7 @@ end.
 ASPECT=: 170%270
 PShow=: 0
 if. IFJA do.
-  wd 'activity ', >coname''
+  wd 'activity ', (>coname''), ' fs'
 else.
   wd PLOTDEMO
   PForm=: 'plotdemo'
@@ -57,7 +57,7 @@ else.
 end.
 )
 
-onCreate=: 3 : 0
+onStart=: 3 : 0
 wd ('720 520';'360 260') stringreplace PLOTDEMO
 PForm=: 'plotdemo'
 PFormhwnd=: wd 'qhwndp'

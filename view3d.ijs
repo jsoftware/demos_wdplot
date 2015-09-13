@@ -61,7 +61,7 @@ DEFAULT=: VIEWPOINT
 DEFAULTUP=: VIEWUP
 
 if. IFJA do.
-  wd 'activity ',>coname''
+  wd 'activity ', (>coname'')
 else.
   wd V3D
   PIdhwnd=: wdqhwndc 'gp'
@@ -72,7 +72,7 @@ else.
 end.
 )
 
-onCreate=: 3 : 0
+onStart=: 3 : 0
 wd V3D
 PIdhwnd=: wdqhwndc 'gp'
 setedits''
