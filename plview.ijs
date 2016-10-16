@@ -15,9 +15,7 @@ CMDS=: ". y
 )
 
 plotrunsx=: 3 : 0
-glclear''
-0!:100 ". y
-pd 'show'
+CMDS=: ". y
 glpaint''
 )
 
@@ -43,7 +41,9 @@ end.
 ASPECT=: 170%270
 PShow=: 0
 if. IFJA do.
-  wd 'activity ', (>coname''), ' fs'
+NB. fs causes menu button hidden in android 7
+NB.  wd 'activity ', (>coname''), ' fs'
+  wd 'activity ', (>coname'')
 else.
   wd PLOTDEMO
   PForm=: 'plotdemo'
@@ -64,12 +64,9 @@ PFormhwnd=: wd 'qhwndp'
 PId=: 'ps'
 PIdhwnd=: wd 'qhwndc ps'
 pd 'reset ',PForm
-wd 'pshow'
-)
-
-onCreateOptionsMenu=: 3 : 0
 wd 'set M',PLDEMOSEL,' checked 1'
 plotrunsx 'D',PLDEMOSEL
+wd 'pshow'
 )
 
 NB. =========================================================
