@@ -64,7 +64,8 @@ PFormhwnd=: wd 'qhwndp'
 PId=: 'ps'
 PIdhwnd=: wd 'qhwndc ps'
 pd 'reset ',PForm
-wd 'set M',PLDEMOSEL,' checked 1'
+NB. optionmenu not yet created at this point in jandroid
+NB. wd 'set M',PLDEMOSEL,' checked 1'
 plotrunsx 'D',PLDEMOSEL
 wd 'pshow'
 )
