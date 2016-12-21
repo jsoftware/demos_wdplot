@@ -26,6 +26,16 @@ pas 0 0;
 rem form end;
 )
 
+PLOTEDIT=: 0 : 0 [^:IFJNET PLOTEDIT
+pc plotedit;pn "View Definition";
+xywh 164 2 84 24;cc redisplay button leftmove rightmove;cn "&Redisplay";
+xywh 248 2 84 24;cc help button leftmove rightmove;cn "&Help";
+xywh 332 2 84 24;cc close button leftmove rightmove;cn "&Close";
+xywh 0 26 416 200;cc graf editm ws_vscroll rightmove bottommove;
+pas 0 0;
+rem form end;
+)
+
 NB. =========================================================
 NB. argument is name of definition
 plotedit_run=: 3 : 0
@@ -93,7 +103,6 @@ try.
   wd 'psel ',":PForm
   pd 'reset ',":PForm
   plotrun graf
-  glpaintx''
   wd 'psel plotedit'
 catch.
   sminfo 'error in graph definition'
