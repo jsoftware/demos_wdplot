@@ -8,8 +8,8 @@ plotrun=: 3 : 0
 glclear''
 0!:100 y
 pd 'show'
-ppaint^:IFJNET ''
-glpaintx''
+NB. ppaint^:IFJNET ''
+glpaintx^:(-.IFJNET) ::0:''
 )
 
 plotruns=: 3 : 0
