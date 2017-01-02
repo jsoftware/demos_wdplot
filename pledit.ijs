@@ -26,12 +26,12 @@ pas 0 0;
 rem form end;
 )
 
-PLOTEDIT=: 0 : 0 [^:IFJNET PLOTEDIT
-pc plotedit;pn "View Definition";
-xywh 164 2 84 24;cc redisplay button leftmove rightmove;cn "&Redisplay";
-xywh 248 2 84 24;cc help button leftmove rightmove;cn "&Help";
-xywh 332 2 84 24;cc close button leftmove rightmove;cn "&Close";
-xywh 0 26 416 200;cc graf editm ws_vscroll rightmove bottommove;
+PLOTEDITJN=: 0 : 0
+pc6j plotedit;pn "View Definition";
+xywh 82 1 42 12;cc redisplay button leftmove rightmove;cn "&Redisplay";
+xywh 124 1 42 12;cc help button leftmove rightmove;cn "&Help";
+xywh 166 1 42 12;cc close button leftmove rightmove;cn "&Close";
+xywh 0 13 416 100;cc graf editm ws_vscroll rightmove bottommove;
 pas 0 0;
 rem form end;
 )
@@ -43,16 +43,16 @@ y=. PLDEMOSEL_jdplot_
 GNAME=: 'D',y,(0=#y)#'JGRAPHICS'
 if. wdisparent 'plotedit' do.
   wd 'psel plotedit'
-  wd 'set graf text *',".GNAME,'_jdplot_'
+  wd 'set graf ',((IFQT+.IFJA)#'text '),'*',".GNAME,'_jdplot_'
   wd 'setfocus graf'
 else.
   if. IFJA do.
     wd 'activity ', (>coname'')
   else.
-    wd PLOTEDIT
+    wd IFQT{::PLOTEDIT;~PLOTEDITJN
     wd 'setfont graf ',FIXFONT
     wd 'pshow;'
-    wd 'set graf text *',".GNAME,'_jdplot_'
+    wd 'set graf ',((IFQT+.IFJA)#'text '),'*',".GNAME,'_jdplot_'
     wd 'setfocus graf'
   end.
 end.

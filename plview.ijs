@@ -8,7 +8,6 @@ plotrun=: 3 : 0
 glclear''
 0!:100 y
 pd 'show'
-NB. ppaint^:IFJNET ''
 glpaintx^:(-.IFJNET) ::0:''
 )
 
@@ -17,7 +16,13 @@ CMDS=: ". y
 )
 
 plotrunsx=: 3 : 0
-CMDS=: ". y
+if. IFQT+.IFJA do.
+ CMDS=: ". y
+else.
+ glclear''
+ 0!:100 ". y
+ pd 'show'
+end.
 glpaint''
 )
 
@@ -47,14 +52,14 @@ NB. fs causes menu button hidden in android 7
 NB.  wd 'activity ', (>coname''), ' fs'
   wd 'activity ', (>coname'')
 else.
-  wd PLOTDEMO
+  wd IFQT{::PLOTDEMO;~PLOTDEMOJN
   PForm=: 'plotdemo'
   PFormhwnd=: wd 'qhwndp'
   PId=: 'ps'
   PIdhwnd=: wd 'qhwndc ps'
   pd 'reset ',PForm
-  wd 'set M',PLDEMOSEL,' checked 1'
-  plotrunsx 'D',PLDEMOSEL
+  wd 'set M',PLDEMOSEL,((IFQT+.IFJA)#' checked'),' 1'
+  plotrunsx`plotruns@.IFQT 'D',PLDEMOSEL
   wd 'pshow'
 end.
 )
@@ -67,7 +72,7 @@ PId=: 'ps'
 PIdhwnd=: wd 'qhwndc ps'
 pd 'reset ',PForm
 NB. optionmenu not yet created at this point in jandroid
-NB. wd 'set M',PLDEMOSEL,' checked 1'
+NB. wd 'set M',PLDEMOSEL,((IFQT+.IFJA)#' checked'),' 1'
 plotrunsx 'D',PLDEMOSEL
 wd 'pshow'
 )
@@ -77,13 +82,13 @@ plotdemo_default=: 3 : 0
 if. systype -: 'button' do.
   name=. }.syschild
   if. name -: PLDEMOSEL do.
-    wd 'set M',PLDEMOSEL,' checked 1'
+    wd 'set M',PLDEMOSEL,((IFQT+.IFJA)#' checked'),' 1'
     return.
   end.
   if. (<name) e. PLOTNAMES do.
-    wd 'set M',PLDEMOSEL,' checked 0'
+    wd 'set M',PLDEMOSEL,((IFQT+.IFJA)#' checked'),' 0'
     PLDEMOSEL=: name
-    wd 'set M',PLDEMOSEL,' checked 1'
+    wd 'set M',PLDEMOSEL,((IFQT+.IFJA)#' checked'),' 1'
     pd 'reset ',PForm
     if. IFJA do.
       plotrunsx 'D',PLDEMOSEL
@@ -137,21 +142,17 @@ else.
   sys_timer_z_=: plotdemo_timer_jdplot_
   SLIDES=: 1
 end.
-wd 'set slides checked ',":SLIDES
+wd 'set slides ',((IFQT+.IFJA)#'checked '),":SLIDES
 )
 
 NB. =========================================================
 plotdemo_step=: 3 : 0
 ndx=. (#PLOTALL) | y + PLOTALL i. <'D',PLDEMOSEL
-wd 'set M',PLDEMOSEL,' checked 0'
+wd 'set M',PLDEMOSEL,((IFQT+.IFJA)#' checked'),' 0'
 PLDEMOSEL=: }.ndx pick PLOTALL
-wd 'set M',PLDEMOSEL,' checked 1'
+wd 'set M',PLDEMOSEL,((IFQT+.IFJA)#' checked'),' 1'
 pd 'reset ',PForm
-if. IFJA do.
-  plotrunsx 'D',PLDEMOSEL
-else.
-  plotrunsx 'D',PLDEMOSEL
-end.
+plotrunsx 'D',PLDEMOSEL
 )
 
 NB. =========================================================
