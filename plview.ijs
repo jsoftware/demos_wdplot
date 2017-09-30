@@ -16,11 +16,11 @@ CMDS=: ". y
 
 plotrunsx=: 3 : 0
 if. IFQT+.IFJA do.
- CMDS=: ". y
+  CMDS=: ". y
 else.
- glclear''
- 0!:100 ". y
- pd 'show'
+  glclear''
+  0!:100 ". y
+  pd 'show'
 end.
 glpaint''
 )
