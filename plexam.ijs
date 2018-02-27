@@ -394,7 +394,6 @@ pd 'color bgclr'
 pd 'noaxes'
 pd 'viewpoint _1 _1.5 0.5'
 pd dat
-pd'show'
 )
 
 NB. =========================================================
@@ -975,7 +974,6 @@ pd 'color teal'
 pd 'axes 1 0'
 pd 'pensize 1'
 pd dat
-pd'show'
 )
 
 NB. =========================================================
