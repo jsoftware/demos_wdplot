@@ -106,17 +106,15 @@ if. IFJA do.
   sminfo 'J Graphics';'This demo is for desktop versions only' return.
 end.
 GRAF=: graf
-cocurrent 'jdplot'
 try.
   wd 'psel ',":PForm
   pd 'reset ',":PForm
-  plotrun graf_jdplotedit_
+  plotrun graf
   wd 'psel plotedit'
 catch.
   sminfo 'error in graph definition'
   0 return.
 end.
-cocurrent 'jdplotedit'
 1
 )
 
